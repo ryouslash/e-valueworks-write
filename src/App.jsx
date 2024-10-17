@@ -1,13 +1,10 @@
 // src/App.jsx
 import React from 'react';
-import './assets/css/reset.css'; 
-import GlobalStyle from './GlobalStyles';
 import Header from './components/Header';
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />  {/* グローバルスタイルをここで適用 */}
       <Header />
       <main>
         <section id="about">

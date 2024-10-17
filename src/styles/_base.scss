@@ -1,0 +1,16 @@
+@use "/src/styles/_variables" as *;
+
+body {
+  font-size: 1.6rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 30px;
+  box-sizing: content-box;
+
+  @include mq-down(sm) {
+    padding: 0 20px;
+  }
+}
