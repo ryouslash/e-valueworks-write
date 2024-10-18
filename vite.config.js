@@ -11,5 +11,23 @@ export default defineConfig({
       },
     },
   },
-  base: '/dist',  // 必要に応じて変更
+  base: "/",
+  build: {
+    rollupOptions: {
+      output: {
+        // JavaScriptファイルを "assets/js" フォルダに出力
+        entryFileNames: "assets/js/[name]-[hash].js",
+        // JavaScriptチャンクファイルを "assets/js" フォルダに出力
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        // CSSファイルを "assets/css" フォルダに出力
+        assetFileNames: ({ name }) => {
+          if (/\.(css)$/.test(name ?? "")) {
+            return "assets/css/[name]-[hash][extname]";
+          }
+          // その他のアセットは "assets" フォルダに出力
+          return "assets/[name]-[hash][extname]";
+        },
+      },
+    },
+  },
 });

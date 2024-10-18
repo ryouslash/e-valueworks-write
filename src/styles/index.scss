@@ -3,6 +3,6 @@
 /*
  * foundation
  */
-@use "/src/styles/_reset";
-@use "/src/styles/_variables";
-@use "/src/styles/_base";
+@use "./_reset";
+@use "./_variables";
+@use "./_base";

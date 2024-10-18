@@ -1,3 +1,13 @@
+// フォント
+$fontXL: clamp(2rem, calc(1.8rem + 0.9375vw), 3.2rem);
+$fontL: clamp(2rem, calc(1.8rem + 0.625vw), 2.6rem);
+$fontM: clamp(1.8rem, calc(1.6rem + 0.625vw), 2rem);
+$fontS: 1.4rem;
+
+// カラー
+$keyColor: #18c1f0;
+$subColor: #73be60;
+
 // ブレイクポイント
 // モバイル端末の中でも特に小型のスマートフォン
 $xs-point: 420;
@@ -46,19 +56,19 @@ $breakpoint-only: (
 ) !default;
 
 @mixin mq-up($breakpoint: md) {
-  @media #{map.get($breakpoint-up, $breakpoint)} {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
     @content;
   }
 }
 
 @mixin mq-down($breakpoint: md) {
-  @media #{map.get($breakpoint-down, $breakpoint)} {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
     @content;
   }
 }
 
 @mixin mq-only($breakpoint: md-sm) {
-  @media #{map.get($breakpoint-only, $breakpoint)} {
+  @media #{map-get($breakpoint-only, $breakpoint)} {
     @content;
   }
 }

@@ -2,6 +2,8 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../assets/img/logo.svg";
+import Nav from "./Nav"; // NavItemコンポーネントをインポート
+import { media } from "../mediaquery";
 
 const HeaderStyle = styled.header`
   background-color: #ffffff;
@@ -28,19 +30,7 @@ const Header = () => {
             <img src={logo} />
           </a>
         </h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
+        <Nav />
       </div>
     </HeaderStyle>
   );
