@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "/src/mediaquery.js";
-import Logo from "/src/components/Header/Logo";
-import Nav from "/src/components/Header/Nav";
-import DrawerBtn from "/src/components/Header/DrawerBtn";
+import Logo from "/src/components/Header/Logo.jsx";
+import Nav from "/src/components/Header/Nav.jsx";
+import DrawerBtn from "/src/components/Header/DrawerBtn.jsx";
 
 const StyledHeader = styled.header`
   background-color: #ffffff;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "/src/mediaquery.js";
-import NavItem from "/src/components/Header/NavItem";
+import NavItem from "/src/components/Header/NavItem.jsx";
 
 const StyledNavItems = styled.ul`
   display: flex;
@@ -21,6 +21,7 @@ const Nav = () => {
         <NavItem href="/" label="ホーム" subLabel="HOME" />
         <NavItem href="#" label="アバウト" subLabel="ABOUT" />
         <NavItem href="#" label="料金" subLabel="PRICE" />
+        <NavItem href="#" label="お知らせ" subLabel="NEWS" />
         <NavItem href="#" label="お問い合わせ" subLabel="CONTACT" />
       </StyledNavItems>
     </nav>
