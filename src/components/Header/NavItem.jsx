@@ -43,7 +43,7 @@ const StyledNavItem = styled.li`
 const NavItem = ({ href, label, subLabel }) => {
   return (
     <StyledNavItem>
-      <a href="{href}">
+      <a href={href}>
         {label}
         <span>{subLabel}</span>
       </a>

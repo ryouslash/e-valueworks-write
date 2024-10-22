@@ -1,25 +1,17 @@
 // src/App.jsx
-import React from "react";
-import Header from "./components/Header/Header.jsx";
+import React, { useState } from "react";
+import Header from "/src/components/Header/Header.jsx";
+import Mv from "/src/components/Contents/Mv.jsx";
 
 const App = () => {
+  const [headerHeight, setHeaderHeight] = useState(0);
+
   return (
     <>
-      <Header />
-      <main>
-        <section id="about">
-          <h2>About Us</h2>
-          <p>Welcome to our landing page!</p>
-        </section>
-        <section id="services">
-          <h2>Services</h2>
-          <p>Here are our services.</p>
-        </section>
-        <section id="contact">
-          <h2>Contact</h2>
-          <p>Get in touch with us.</p>
-        </section>
-      </main>
+      <Header setHeaderHeight={setHeaderHeight} />
+      <content>
+        <Mv headerHeight={headerHeight} />
+      </content>
     </>
   );
 };

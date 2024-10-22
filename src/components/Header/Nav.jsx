@@ -16,7 +16,7 @@ const StyledNavItems = styled.ul`
 
 const Nav = () => {
   return (
-    <nav className="g-nav">
+    <nav>
       <StyledNavItems>
         <NavItem href="/" label="ホーム" subLabel="HOME" />
         <NavItem href="#" label="アバウト" subLabel="ABOUT" />
