@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { media } from "/src/mediaquery.js";
 import logo from "/src/assets/img/logo.svg";
 
-const StyledLogo = styled.h1`
+const StyledLogo = styled.div`
   max-width: 250px;
 
   ${media.sm`

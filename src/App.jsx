@@ -9,9 +9,9 @@ const App = () => {
   return (
     <>
       <Header setHeaderHeight={setHeaderHeight} />
-      <content>
-        <Mv headerHeight={headerHeight} />
-      </content>
+      <div class="content">
+        <Mv />
+      </div>
     </>
   );
 };

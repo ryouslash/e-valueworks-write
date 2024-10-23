@@ -31,7 +31,12 @@ const Header = ({ setHeaderHeight }) => {
 
   const updateHeaderHeight = () => {
     if (headerRef.current) {
-      setHeaderHeight(headerRef.current.clientHeight);
+      const height = headerRef.current.clientHeight;
+      setHeaderHeight(height);
+      document.documentElement.style.setProperty(
+        "--headerHeight",
+        `${height}px`
+      );
     }
   };
 

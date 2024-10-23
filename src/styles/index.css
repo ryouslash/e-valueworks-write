@@ -189,6 +189,12 @@ img {
 }
 
 /*
+*変数
+*/
+/*
+* ブレイクポイント
+*/
+/*
 * ベースCSS
 */
 body {
@@ -197,12 +203,17 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1260px;
   padding: 0 30px;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 575px) {
   .container {
     padding: 0 20px;
   }
+}
+
+.content {
+  margin-top: var(--headerHeight);
 }/*# sourceMappingURL=index.css.map */
