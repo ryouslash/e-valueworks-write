@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Header setHeaderHeight={setHeaderHeight} />
-      <div class="content">
+      <div className="content">
         <Mv />
       </div>
     </>
