@@ -13,13 +13,15 @@ const StyledBtnWithIcon = styled.a`
   padding: 20px 0;
   position: relative;
   top: 0;
-  transition: opacity 0.3s;
+  transition: 0.3s;
   width: 100%;
   background-color: ${(props) => props.$bgColor || "#dcdcdc"};
   color: ${(props) => props.$color || "#333333"};
 
   &:hover {
     opacity: 0.8;
+    top: 3px;
+    left: 3px;
   }
 
   > svg {

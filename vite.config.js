@@ -19,10 +19,13 @@ export default defineConfig({
         entryFileNames: "assets/js/[name]-[hash].js",
         // JavaScriptチャンクファイルを "assets/js" フォルダに出力
         chunkFileNames: "assets/js/[name]-[hash].js",
-        // CSSファイルを "assets/css" フォルダに出力
+        // CSSファイルとその他のアセットを条件分岐で出力
         assetFileNames: ({ name }) => {
           if (/\.(css)$/.test(name ?? "")) {
             return "assets/css/[name]-[hash][extname]";
+          }
+          if (/\.(png|jpe?g|svg|gif|webp)$/.test(name ?? "")) {
+            return "assets/img/[name]-[hash][extname]";
           }
           // その他のアセットは "assets" フォルダに出力
           return "assets/[name]-[hash][extname]";
