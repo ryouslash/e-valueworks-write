@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom"; // Linkをインポート
 
 const StyledNavItem = styled.li`
   a {
@@ -43,10 +44,10 @@ const StyledNavItem = styled.li`
 const NavItem = ({ href, label, subLabel }) => {
   return (
     <StyledNavItem>
-      <a href={href}>
+      <Link to={href}>
         {label}
         <span>{subLabel}</span>
-      </a>
+      </Link>
     </StyledNavItem>
   );
 };

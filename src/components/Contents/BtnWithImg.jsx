@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { media } from "/src/mediaquery.js";
+import { media } from "/src/assets/js/mediaquery.js";
 
 const StyledBtnWithImg = styled.a`
   align-items: center;
