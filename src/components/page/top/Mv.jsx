@@ -1,18 +1,20 @@
-import React from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
+
 import chatwork from "/src/assets/img/cw_logomark_color.svg";
 import mvImg from "/src/assets/img/mv_img.png";
 import { faEnvelope, faCheck } from "@fortawesome/free-solid-svg-icons";
-import BtnWithIcon from "/src/components/Contents/BtnWithIcon.jsx";
-import BtnWithImg from "/src/components/Contents/BtnWithImg.jsx";
-import ListWithIcon from "/src/components/Contents/ListWithIcon.jsx";
-import TypingText from "/src/components/Contents/TypingText.jsx";
+
+import BtnWithIcon from "/src/components/common/BtnWithIcon.jsx";
+import BtnWithImg from "/src/components/common/BtnWithImg.jsx";
+import ListWithIcon from "/src/components/common/ListWithIcon.jsx";
+import TypingText from "/src/components/common/TypingText.jsx";
+import Container from "/src/components/common/Container.jsx";
 
 const Mv = () => {
   return (
     <StyledMv>
-      <div className="container">
+      <Container className="container">
         <div className="left">
           <TypingText text="現役Webエンジニアによる¥IT・Web特化ライティングサービス" />
           <ul>
@@ -49,7 +51,7 @@ const Mv = () => {
         <div class="right">
           <img src={mvImg} />
         </div>
-      </div>
+      </Container>
     </StyledMv>
   );
 };
@@ -59,7 +61,7 @@ const StyledMv = styled.section`
   background: rgb(232, 238, 254);
   background: linear-gradient(
     115deg,
-    rgba(232, 238, 254, 1) #E8EEFE,
+    rgba(232, 238, 254, 1) #e8eefe,
     rgba(216, 226, 255, 1) 44%,
     rgba(239, 243, 254, 1) 96%
   );

@@ -201,24 +201,4 @@ img {
 body {
   font-size: 1.6rem;
   font-family: "Roboto", "Noto Sans JP", sans-serif;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1260px;
-  padding-left: 30px;
-  padding-right: 30px;
-  box-sizing: border-box;
-}
-@media screen and (max-width: 575px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-.content {
-  margin-top: var(--headerHeight);
 }/*# sourceMappingURL=index.css.map */

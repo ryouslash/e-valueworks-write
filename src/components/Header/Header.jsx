@@ -1,35 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
-import Logo from "/src/components/Header/Logo.jsx";
-import Nav from "/src/components/Header/Nav.jsx";
-import DrawerBtn from "/src/components/Header/DrawerBtn.jsx";
-import DrawerMenu from "/src/components/Header/DrawerMenu.jsx";
+import Logo from "/src/components/header/Logo.jsx";
+import Nav from "/src/components/header/Nav.jsx";
+import DrawerBtn from "/src/components/header/DrawerBtn.jsx";
+import DrawerMenu from "/src/components/header/DrawerMenu.jsx";
+import Container from "/src/components/common/Container.jsx";
 
 const Header = ({ setHeaderHeight }) => {
-  const headerRef = useRef();
-
-  const updateHeaderHeight = () => {
-    if (headerRef.current) {
-      const height = headerRef.current.clientHeight;
-      setHeaderHeight(height);
-      document.documentElement.style.setProperty(
-        "--headerHeight",
-        `${height}px`
-      );
-    }
-  };
-
-  useEffect(() => {
-    updateHeaderHeight();
-
-    window.addEventListener("resize", updateHeaderHeight);
-
-    return () => {
-      window.removeEventListener("resize", updateHeaderHeight);
-    };
-  }, []);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -37,12 +15,12 @@ const Header = ({ setHeaderHeight }) => {
   };
 
   return (
-    <StyledHeader ref={headerRef}>
-      <div className="container">
+    <StyledHeader>
+      <Container className="container">
         <Logo />
         <Nav />
         <DrawerBtn onClick={toggleDrawer} isOpen={isOpen} />
-      </div>
+      </Container>
       {isOpen ? <DrawerMenu isOpen={isOpen} /> : null}
     </StyledHeader>
   );

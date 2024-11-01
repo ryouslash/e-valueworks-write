@@ -1,8 +1,17 @@
-import React from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const StyledBtnWithImg = styled.a`
+const BtnWithIcon = ({ label, href, icon, className, bgColor, color }) => {
+  return (
+    <StyledBtnWithIcon href={href} $bgColor={bgColor} $color={color}>
+      <FontAwesomeIcon icon={icon} className={className} />
+      {label}
+    </StyledBtnWithIcon>
+  );
+};
+
+const StyledBtnWithIcon = styled.a`
   align-items: center;
   box-shadow: 2px 2px 6px #aaa;
   display: flex;
@@ -23,19 +32,10 @@ const StyledBtnWithImg = styled.a`
     left: 3px;
   }
 
-  > img {
-    width: 20px;
+  > svg {
+    font-size: 2rem;
     margin-right: 10px;
   }
 `;
 
-const BtnWithImg = ({ label, href, img, bgColor, color }) => {
-  return (
-    <StyledBtnWithImg href={href} $bgColor={bgColor} $color={color}>
-      <img src={img} target="_blank" />
-      {label}
-    </StyledBtnWithImg>
-  );
-};
-
-export default BtnWithImg;
+export default BtnWithIcon;

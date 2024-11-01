@@ -1,6 +1,13 @@
-import React from "react";
 import styled from "styled-components";
-import { media } from "/src/assets/js/mediaquery.js";
+
+const DrawerItem = ({ href, label, subLabel }) => {
+  return (
+    <StyledDrawerItem>
+      <a href={href}>{label}</a>
+      <span>{subLabel}</span>
+    </StyledDrawerItem>
+  );
+};
 
 const StyledDrawerItem = styled.li`
   display: flex;
@@ -14,14 +21,5 @@ const StyledDrawerItem = styled.li`
     border-bottom: 1px dotted #333333;
   }
 `;
-
-const DrawerItem = ({ href, label, subLabel }) => {
-  return (
-    <StyledDrawerItem>
-      <a href={href}>{label}</a>
-      <span>{subLabel}</span>
-    </StyledDrawerItem>
-  );
-};
 
 export default DrawerItem;

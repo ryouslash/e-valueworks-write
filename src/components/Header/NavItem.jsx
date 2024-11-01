@@ -1,6 +1,16 @@
-import React from "react";
+import { Link } from "react-router-dom"; 
 import styled from "styled-components";
-import { Link } from "react-router-dom"; // Linkをインポート
+
+const NavItem = ({ href, label, subLabel }) => {
+  return (
+    <StyledNavItem>
+      <Link to={href}>
+        {label}
+        <span>{subLabel}</span>
+      </Link>
+    </StyledNavItem>
+  );
+};
 
 const StyledNavItem = styled.li`
   a {
@@ -40,16 +50,5 @@ const StyledNavItem = styled.li`
     }
   }
 `;
-
-const NavItem = ({ href, label, subLabel }) => {
-  return (
-    <StyledNavItem>
-      <Link to={href}>
-        {label}
-        <span>{subLabel}</span>
-      </Link>
-    </StyledNavItem>
-  );
-};
 
 export default NavItem;

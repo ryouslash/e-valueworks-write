@@ -1,13 +1,12 @@
 import React from "react";
 import Content from "/src/components/common/Content.jsx";
-import Mv from "/src/components/page/top/Mv.jsx";
 
-const HomeContent = () => {
+const AboutContent = () => {
   return (
     <Content>
-      <Mv />
+      <h1>About Page</h1>
     </Content>
   );
 };
 
-export default HomeContent;
+export default AboutContent;

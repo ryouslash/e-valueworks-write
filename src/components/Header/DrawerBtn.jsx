@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+
+const DrawerBtn = ({ onClick, isOpen }) => {
+  return (
+    <StyledDrawerBtn className={isOpen ? "is-open" : ""} onClick={onClick}>
+      <FontAwesomeIcon icon={faBars} className="fa-bars" />
+      <FontAwesomeIcon icon={faXmark} className="fa-xmark" />
+    </StyledDrawerBtn>
+  );
+};
 
 const StyledDrawerBtn = styled.div`
   display: none;
@@ -15,7 +24,7 @@ const StyledDrawerBtn = styled.div`
     cursor: pointer;
   `}
 
-  >svg {
+  > svg {
     font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2rem);
     left: 50%;
     top: 50%;
@@ -47,14 +56,5 @@ const StyledDrawerBtn = styled.div`
     }
   }
 `;
-
-const DrawerBtn = ({ onClick, isOpen }) => {
-  return (
-    <StyledDrawerBtn className={isOpen ? "is-open" : ""} onClick={onClick}>
-      <FontAwesomeIcon icon={faBars} className="fa-bars" />
-      <FontAwesomeIcon icon={faXmark} className="fa-xmark" />
-    </StyledDrawerBtn>
-  );
-};
 
 export default DrawerBtn;

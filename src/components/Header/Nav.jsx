@@ -1,7 +1,31 @@
-import React from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
-import NavItem from "/src/components/Header/NavItem.jsx";
+import NavItem from "/src/components/header/NavItem.jsx";
+
+const navItems = [
+  { href: "/", label: "ホーム", subLabel: "HOME" },
+  { href: "/about", label: "アバウト", subLabel: "ABOUT" },
+  { href: "#", label: "料金", subLabel: "PRICE" },
+  { href: "#", label: "お知らせ", subLabel: "NEWS" },
+  { href: "#", label: "お問い合わせ", subLabel: "CONTACT" },
+];
+
+const Nav = () => {
+  return (
+    <nav>
+      <StyledNavItems>
+        {navItems.map((item, index) => (
+          <NavItem
+            key={index}
+            href={item.href}
+            label={item.label}
+            subLabel={item.subLabel}
+          />
+        ))}
+      </StyledNavItems>
+    </nav>
+  );
+};
 
 const StyledNavItems = styled.ul`
   display: flex;
@@ -13,19 +37,5 @@ const StyledNavItems = styled.ul`
     display: none;
   `}
 `;
-
-const Nav = () => {
-  return (
-    <nav>
-      <StyledNavItems>
-        <NavItem href="/" label="ホーム" subLabel="HOME" />
-        <NavItem href="/about" label="アバウト" subLabel="ABOUT" />
-        <NavItem href="#" label="料金" subLabel="PRICE" />
-        <NavItem href="#" label="お知らせ" subLabel="NEWS" />
-        <NavItem href="#" label="お問い合わせ" subLabel="CONTACT" />
-      </StyledNavItems>
-    </nav>
-  );
-};
 
 export default Nav;
