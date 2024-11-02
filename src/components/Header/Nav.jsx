@@ -2,15 +2,15 @@ import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 import NavItem from "/src/components/header/NavItem.jsx";
 
-const navItems = [
-  { href: "/", label: "ホーム", subLabel: "HOME" },
-  { href: "/about", label: "アバウト", subLabel: "ABOUT" },
-  { href: "#", label: "料金", subLabel: "PRICE" },
-  { href: "#", label: "お知らせ", subLabel: "NEWS" },
-  { href: "#", label: "お問い合わせ", subLabel: "CONTACT" },
-];
-
 const Nav = () => {
+  const navItems = [
+    { href: "/", label: "ホーム", subLabel: "HOME" },
+    { href: "/about", label: "アバウト", subLabel: "ABOUT" },
+    { href: "#", label: "料金", subLabel: "PRICE" },
+    { href: "#", label: "お知らせ", subLabel: "NEWS" },
+    { href: "#", label: "お問い合わせ", subLabel: "CONTACT" },
+  ];
+
   return (
     <nav>
       <StyledNavItems>

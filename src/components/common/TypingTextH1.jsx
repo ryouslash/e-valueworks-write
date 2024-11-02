@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { media } from "/src/assets/js/mediaquery.js";
 
-const TypingText = ({ text }) => {
+const TypingTextH1 = ({ text }) => {
   const [displayedText, setDisplayedText] = useState("");
+
   const indexRef = useRef(0);
 
   useEffect(() => {
@@ -21,12 +23,11 @@ const TypingText = ({ text }) => {
     return () => {
       clearInterval(intervalId);
       setDisplayedText("");
-      indexRef.current = 0;
     };
   }, [text]);
 
   return (
-    <StyledText className="js-typing title">
+    <StyledText>
       {displayedText.split("¥").map((line, index) => (
         <React.Fragment key={index}>
           {line}
@@ -38,6 +39,14 @@ const TypingText = ({ text }) => {
 };
 
 const StyledText = styled.h1`
+  font-size: clamp(2rem, 1.8rem + 0.9375vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 0.8em;
+
+  ${media.md`
+    text-align: center;
+  `}
+
   @keyframes flashing {
     0% {
       opacity: 0;
@@ -59,4 +68,4 @@ const StyledText = styled.h1`
   }
 `;
 
-export default TypingText;
+export default TypingTextH1;
