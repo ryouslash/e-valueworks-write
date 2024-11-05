@@ -4,7 +4,7 @@ import { media } from "/src/assets/js/mediaquery.js";
 
 const TypingTextH1 = ({ text }) => {
   const [displayedText, setDisplayedText] = useState("");
-
+  const [isTypingFinished, setIsTypingFinished] = useState(false);
   const indexRef = useRef(0);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const TypingTextH1 = ({ text }) => {
         indexRef.current += 1;
       } else {
         clearInterval(intervalId);
+        setIsTypingFinished(true); // タイピングが完了したことを設定
       }
     };
 
@@ -30,7 +31,9 @@ const TypingTextH1 = ({ text }) => {
     <StyledText>
       {displayedText.split("¥").map((line, index) => (
         <React.Fragment key={index}>
-          {line}
+          <StyledLine $isTypingFinished={isTypingFinished} $delay={index * 0.5}>
+            {line}
+          </StyledLine>
           {index < displayedText.split("¥").length - 1 && <br />}
         </React.Fragment>
       ))}
@@ -39,32 +42,36 @@ const TypingTextH1 = ({ text }) => {
 };
 
 const StyledText = styled.h1`
-  font-size: clamp(2rem, 1.8rem + 0.9375vw, 3.2rem);
+  font-size: clamp(1.7rem, 1.2rem + 1.5625vw, 3.2rem);
   font-weight: 700;
   margin-bottom: 0.8em;
+  letter-spacing: -0.5px;
 
   ${media.md`
     text-align: center;
   `}
+`;
 
-  @keyframes flashing {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+const StyledLine = styled.span`
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 3px 10px;
+  color: ${({ $isTypingFinished }) =>
+    $isTypingFinished ? "#ffffff" : "inherit"};
+  transition: color 1s ease ${({ $delay }) => $delay}s; /* テキストの色の遅延 */
+  z-index: 1;
 
   &:after {
     content: "";
-    animation: flashing 1s linear infinite;
-    border-right: 10px solid #333;
-    margin-left: 0.5em;
-    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: ${({ $isTypingFinished }) => ($isTypingFinished ? "100%" : "0")};
+    height: 100%;
+    background-color: #91b3fa; /* 背景色 */
+    transition: width 1s ease ${({ $delay }) => $delay}s; /* 背景色の遅延 */
+    z-index: -1;
   }
 `;
 

@@ -6,7 +6,7 @@ import TypingTextH1 from "/src/components/common/TypingTextH1.jsx";
 import Container from "/src/components/common/Container.jsx";
 import MvBtns from "/src/components/page/top/mv/MvBtns.jsx";
 import MvLists from "/src/components/page/top/mv/MvLists.jsx";
-import FadeInElement from "/src/components/common/FadeInElement.jsx";
+import FadeInAfterDelay from "/src/components/common/FadeInAfterDelay.jsx";
 
 const Mv = () => {
   return (
@@ -14,12 +14,16 @@ const Mv = () => {
       <Container className="container">
         <div className="left">
           <TypingTextH1 text="現役Webエンジニアによる¥IT・Web特化ライティングサービス" />
-          <MvLists />
-          <p>様々なニーズにお答えします。</p>
-          <MvBtns />
+          <FadeInAfterDelay delay={3600}>
+            <MvLists />
+            <p>様々なニーズにお答えします。</p>
+          </FadeInAfterDelay>
+          <FadeInAfterDelay delay={4000}>
+            <MvBtns />{" "}
+          </FadeInAfterDelay>
         </div>
         <div className="right">
-          <img src={mvImg} alt="Main Visual" />
+          <img src={mvImg} alt="" />
         </div>
       </Container>
     </StyledMv>

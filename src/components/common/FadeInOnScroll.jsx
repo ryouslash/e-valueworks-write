@@ -2,21 +2,21 @@ import styled from "styled-components";
 
 import useFadeInOnScroll from "/src/hooks/useFadeInOnScroll.jsx";
 
-const FadeInElement = ({ children, delay }) => {
+const FadeInOnScroll = ({ children, delay }) => {
   const { ref, isVisible } = useFadeInOnScroll();
 
   return (
-    <StyledFadeInElement
+    <StyledFadeInOnScroll
       ref={ref}
       className={isVisible ? "is-active" : ""}
       $delay={delay}
     >
       {children}
-    </StyledFadeInElement>
+    </StyledFadeInOnScroll>
   );
 };
 
-const StyledFadeInElement = styled.div`
+const StyledFadeInOnScroll = styled.div`
   opacity: 0;
   transform: translateY(20px);
   transition: 0.5s;
@@ -28,4 +28,4 @@ const StyledFadeInElement = styled.div`
   }
 `;
 
-export default FadeInElement;
+export default FadeInOnScroll;
