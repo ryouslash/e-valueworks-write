@@ -3,18 +3,18 @@ import { media } from "/src/assets/js/mediaquery.js";
 import Container from "/src/components/common/Container.jsx";
 import NewsLists from "/src/components/page/top/news/NewsLists.jsx";
 
-const News = () => {
+const NewsSection = () => {
   return (
-    <StyledNews>
+    <StyledNewsSection>
       <Container>
         <NewsLists />
       </Container>
-    </StyledNews>
+    </StyledNewsSection>
   );
 };
 
-const StyledNews = styled.section`
+const StyledNewsSection = styled.section`
   background-color: #eee;
 `;
 
-export default News;
+export default NewsSection;

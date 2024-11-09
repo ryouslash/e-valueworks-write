@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 
-const TypingTextH1 = ({ text }) => {
+const TypingTextH1 = ({ text, isTypingFinished, onTypingComplete }) => {
   const [displayedText, setDisplayedText] = useState("");
-  const [isTypingFinished, setIsTypingFinished] = useState(false);
   const indexRef = useRef(0);
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const TypingTextH1 = ({ text }) => {
         indexRef.current += 1;
       } else {
         clearInterval(intervalId);
-        setIsTypingFinished(true); // タイピングが完了したことを設定
+        if (onTypingComplete) onTypingComplete(); // タイピング完了を通知
       }
     };
 
