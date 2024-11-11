@@ -1,6 +1,6 @@
 // src/slices/newsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { client } from "/src/api/newtClient.js"; // Newt API クライアント
+import { client } from "/src/api/newtapi.js"; // Newt API クライアント
 
 // 記事情報を非同期で取得する Thunk
 export const fetchNews = createAsyncThunk("news/fetchNews", async () => {
