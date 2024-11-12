@@ -8,6 +8,7 @@ import Container from "/src/components/common/Container.jsx";
 import FadeIn from "/src/components/common/FadeIn.jsx";
 import MvBtns from "/src/components/page/top/mv/MvBtns.jsx";
 import MvLists from "/src/components/page/top/mv/MvLists.jsx";
+import News from "/src/components/page/top/mv/News.jsx";
 
 const Mv = () => {
   const [isTypingFinished, setIsTypingFinished] = useState(false); // タイピングテキストの実行が終わったタイミングでファーストビューのアニメーションを実行
@@ -32,6 +33,7 @@ const Mv = () => {
           <img src={mvImg} alt="" />
         </div>
       </Container>
+      <News isTypingFinished={isTypingFinished} />
     </StyledMv>
   );
 };
