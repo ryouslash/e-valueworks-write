@@ -9,7 +9,7 @@ import * as colors from "/src/assets/js/colors.js";
 
 const MvNewsList = ({ newsItem, isActive }) => {
   return (
-    <StyledMvNewsList className={isActive ? "is-active" : ""}>
+    <StyledMvNewsList className={isActive ? "is-slideIn" : ""}>
       <time dateTime={formatDate2(newsItem._sys.createdAt) || ""}>
         {formatDate(newsItem._sys.createdAt) || ""}
       </time>
@@ -27,7 +27,7 @@ const MvNewsList = ({ newsItem, isActive }) => {
         )}
       </div>
       <div className="title">
-        <Link to={`/news/${newsItem.id}`}>
+        <Link to={`/news/${newsItem._id}`}>
           {newsItem.title || "タイトル情報なし"}
         </Link>
       </div>
@@ -39,7 +39,6 @@ const StyledMvNewsList = styled.li`
   display: grid;
   align-items: center;
   gap: 0.8em;
-  padding: 10px 0;
   grid-template-columns: auto auto 1fr;
   position: absolute;
   left: 0;
@@ -51,7 +50,7 @@ const StyledMvNewsList = styled.li`
     grid-template-columns: auto 1fr;
   `}
 
-  &.is-active {
+  &.is-slideIn {
     opacity: 1;
     position: sticky;
     top: 0;

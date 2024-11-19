@@ -5,7 +5,7 @@ import { client } from "/src/api/newtapi.js"; // Newt API クライアント
 // 記事情報を非同期で取得する Thunk
 export const fetchNews = createAsyncThunk("news/fetchNews", async () => {
   const response = await client.getContents({
-    appUid: "blog",
+    appUid: "news",
     modelUid: "article",
     order: "-createdAt",
   });

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { fetchNews } from "/src/store/modules/newsSlice.js";
+import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
@@ -9,22 +7,15 @@ import { media } from "/src/assets/js/mediaquery.js";
 import MvNewsList from "/src/components/page/top/mv/MvNewsList.jsx"; // 分割したコンポーネントをインポート
 
 const MvNewsLists = ({ isTypingFinished }) => {
-  const dispatch = useDispatch();
   const newsItems = useSelector((state) => state.news.items);
-  const newsStatus = useSelector((state) => state.news.status);
+  const status = useSelector((state) => state.news.status);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (newsStatus === "idle") {
-      dispatch(fetchNews()); // 初回レンダリング時にデータを取得
-    }
-  }, [dispatch, newsStatus]);
 
   useEffect(() => {
     if (
       isTypingFinished &&
-      newsStatus === "succeeded" &&
-      newsItems.length > 0
+      status === "succeeded" &&
+      newsItems.length > 1
     ) {
       // 最初の1回だけ2秒後に実行
       const initialTimeout = setTimeout(() => {
@@ -40,20 +31,20 @@ const MvNewsLists = ({ isTypingFinished }) => {
           clearTimeout(initialTimeout);
           clearInterval(interval);
         };
-      }, 1000); // 最初の1回だけ1秒後に実行
+      }, 2000); // 最初の1回だけ2秒後に実行
     }
-  }, [isTypingFinished, newsStatus, newsItems.length]);
+  }, [isTypingFinished, status, newsItems.length]);
 
   return (
     <StyledMvNewsLists>
-      {newsStatus === "loading" && <p>データを取得中...</p>}
-      {newsStatus === "failed" && <p>データの取得に失敗しました</p>}
-      {newsStatus === "succeeded" &&
+      {status === "loading" && <p>データを取得中...</p>}
+      {status === "failed" && <p>データの取得に失敗しました</p>}
+      {status === "succeeded" &&
         newsItems.map((newsItem, index) => (
           <MvNewsList
             key={index}
             newsItem={newsItem}
-            isActive={index === activeIndex} // isActiveのプロパティを追加
+            isActive={newsItems.length === 1 || index === activeIndex}
           />
         ))}
     </StyledMvNewsLists>
@@ -63,6 +54,7 @@ const MvNewsLists = ({ isTypingFinished }) => {
 const StyledMvNewsLists = styled.ul`
   position: relative;
   overflow: hidden;
+  padding: 10px 0;
 `;
 
 export default MvNewsLists;

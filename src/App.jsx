@@ -1,27 +1,48 @@
 // src/App.jsx
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "/src/store/index.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNews } from "/src/store/modules/newsSlice";
+import { fetchCategories } from "/src/store/modules/categoriesSlice";
 import Home from "/src/pages/Home.jsx";
 import About from "/src/pages/About.jsx";
 import NewsDetail from "/src/pages/NewsDetail.jsx";
+import NewsCategory from "/src/pages/NewsCategory.jsx";
 import Contact from "/src/pages/Contact.jsx";
 import Header from "/src/components/Header/Header.jsx";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const newsStatus = useSelector((state) => state.news.status);
+  const categoriesStatus = useSelector((state) => state.categories.status);
+
+  useEffect(() => {
+    if (newsStatus === "idle") {
+      dispatch(fetchNews());
+    }
+    if (categoriesStatus === "idle") {
+      dispatch(fetchCategories());
+    }
+  }, [dispatch, newsStatus, categoriesStatus]);
+
   return (
-    <Provider store={store}>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/news/:newsId" element={<NewsDetail />} />{" "}
-          {/* 詳細ページのルート */}
-        </Routes>
-      </Router>
-    </Provider>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* お知らせ一覧ページのルート */}
+        {/* お知らせ詳細ページのルート */}
+        <Route path="/news/:newsId" element={<NewsDetail />} /> {/* 修正 */}
+        {/* お知らせカテゴリー一覧ページのルート */}
+        <Route
+          path="/news/category/:categoryId"
+          element={<NewsCategory />}
+        />{" "}
+        {/* 修正 */}
+      </Routes>
+    </Router>
   );
 };
 

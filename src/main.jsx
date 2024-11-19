@@ -1,4 +1,6 @@
 import { StrictMode } from "react";
+import { Provider } from "react-redux";
+import store from "/src/store/index.js";
 import { createRoot } from "react-dom/client";
 // グローバルなCSS
 import "/src/assets/styles/index.css";
@@ -6,6 +8,8 @@ import App from "/src/App.jsx";
 
 createRoot(document.getElementById("root")).render(
   // <StrictMode>
-  <App />
+  <Provider store={store}>
+    <App />
+  </Provider>
   // </StrictMode>
 );

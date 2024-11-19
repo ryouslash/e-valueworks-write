@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const DrawerItem = ({ href, label, subLabel }) => {
   return (
     <StyledDrawerItem>
-      <a href={href}>{label}</a>
+      <Link to={href}>{label}</Link>
       <span>{subLabel}</span>
     </StyledDrawerItem>
   );

@@ -198,4 +198,10 @@ img {
 body {
   font-size: 1.6rem;
   font-family: "Roboto", "Noto Sans JP", sans-serif;
+  min-width: 1200px;
+}
+@media screen and (max-width: 767px) {
+  body {
+    min-width: initial;
+  }
 }/*# sourceMappingURL=index.css.map */

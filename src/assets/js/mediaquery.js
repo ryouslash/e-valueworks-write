@@ -17,7 +17,7 @@ const breakpoints = {
 export const media = Object.keys(breakpoints).reduce((acc, label) => {
   // max-widthの定義
   acc[label] = (...args) => `
-    @media (max-width: ${breakpoints[label]}) {
+    @media screen and (max-width: ${breakpoints[label]}) {
       ${args}
     }
   `;
@@ -25,7 +25,7 @@ export const media = Object.keys(breakpoints).reduce((acc, label) => {
   // min-widthの定義 (+1pxを追加)
   const minWidthValue = parseInt(breakpoints[label], 10) + 1;
   acc[`${label}Up`] = (...args) => `
-    @media (min-width: ${minWidthValue}px) {
+    @media screen and (min-width: ${minWidthValue}px) {
       ${args}
     }
   `;
