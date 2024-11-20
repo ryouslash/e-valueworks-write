@@ -5,7 +5,7 @@ import { formatDate, formatDate2 } from "/src/assets/js/common.js";
 
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
-import * as colors from "/src/assets/js/colors.js";
+import * as variables from "/src/assets/js/variable.js";
 
 const MvNewsList = ({ newsItem, isActive }) => {
   return (
@@ -65,7 +65,7 @@ const StyledMvNewsList = styled.li`
     grid-column: 2/3;
     grid-row: 1/2;
     > a {
-      background-color: ${colors.subColor};
+      background-color: ${variables.subColor};
       color: #ffffff;
       font-weight: bolder;
       padding: 0.1em 0.6em;
@@ -73,9 +73,9 @@ const StyledMvNewsList = styled.li`
       border: 1px solid #ffffff;
 
       &:hover {
-        color: ${colors.subColor};
+        color: ${variables.subColor};
         background-color: #ffffff;
-        border: 1px solid ${colors.subColor};
+        border: 1px solid ${variables.subColor};
       }
     }
   }

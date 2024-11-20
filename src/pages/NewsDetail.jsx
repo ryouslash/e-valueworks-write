@@ -1,17 +1,19 @@
 // NewsDetail.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 import Content from "/src/components/common/Content.jsx";
 import Container from "/src/components/common/Container.jsx";
+import LoadingScreen from "/src/components/common/LoadingScreen.jsx";
 import Main from "/src/components/page/newsDetail/newsMain.jsx";
 import Sidebar from "/src/components/sidebar/Sidebar.jsx";
 
 const NewsDetail = () => {
   // URLパラメータからニュースIDを取得
   const { newsId } = useParams();
+  const [minimumLoading, setMinimumLoading] = useState(true); // 最低表示時間の制御
 
   // Reduxからお知らせニュース一覧を取得
   const newsItems = useSelector((state) => state.news.items);
@@ -25,12 +27,21 @@ const NewsDetail = () => {
   const currentIndex = newsItems.findIndex((item) => item._id === newsId);
   const newsItem = newsItems[currentIndex];
 
+  // 最低1秒間のローディング時間を保証
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMinimumLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer); // クリーンアップ
+  }, []);
+
   // 状態に応じた表示
-  if (newsStatus === "loading" || newsItems.length === 0) {
+  if (newsStatus === "loading" || newsItems.length === 0 || minimumLoading) {
     return (
       <Content>
         <Container>
-          <p>データを取得中...</p>
+          <LoadingScreen />
         </Container>
       </Content>
     );
@@ -40,7 +51,9 @@ const NewsDetail = () => {
     return (
       <Content>
         <Container>
-          <p>データの取得に失敗しました。再度お試しください。</p>
+          <p style={{ padding: "60px 0" }}>
+            データの取得に失敗しました。再度お試しください。
+          </p>{" "}
         </Container>
       </Content>
     );
