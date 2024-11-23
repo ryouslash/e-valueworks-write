@@ -1,49 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import RecentPosts from "/src/components/sidebar/RecentPosts.jsx";
+import Categories from "/src/components/sidebar/Categories.jsx";
 
-const Sidebar = ({ latestNews, newsCategories }) => {
+const Sidebar = () => {
+  // Reduxからお知らせニュース一覧を取得
+  const newsItems = useSelector((state) => state.news.items);
+  const latestNews = newsItems.slice(0, 5);
+
+  // Reduxからお知らせタグ一覧を取得
+  const newsCategories = useSelector((state) => state.categories.items);
+
   return (
-    <aside>
-      <div>
-        <h2>最新の投稿</h2>
-        <ul>
-          {latestNews.map((newsItem) => (
-            <li key={newsItem._id}>
-              <Link to={`/news/${newsItem._id}`}>
-                {" "}
-                <div>
-                  {newsItem.coverImage && (
-                    <img
-                      src={newsItem.coverImage.src}
-                      width={newsItem.coverImage.width}
-                      height={newsItem.coverImage.height}
-                      alt={newsItem.coverImage.altText || "お知らせサムネイル"}
-                    />
-                  )}
-                </div>
-                <h3>{newsItem.title}</h3>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>カテゴリー</h2>
-        <div>
-          <ul>
-            {newsCategories.map((newsCategory) => (
-              <li key={newsCategory._id}>
-                <Link to={`/news/category/${newsCategory.slug}`}>
-                  {" "}
-                  <h3>{newsCategory.name}</h3>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </aside>
+    <StyledSidebar>
+      <RecentPosts latestNews={latestNews} />
+      <Categories newsCategories={newsCategories} />
+    </StyledSidebar>
   );
 };
+
+const StyledSidebar = styled.aside`
+  > *:first-child {
+    margin-bottom: 30px;
+  }
+`;
 
 export default Sidebar;

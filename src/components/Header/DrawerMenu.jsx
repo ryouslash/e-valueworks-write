@@ -8,7 +8,7 @@ const DrawerMenu = () => {
     { href: "/", label: "ホーム", subLabel: "HOME" },
     { href: "/about", label: "アバウト", subLabel: "ABOUT" },
     { href: "#", label: "料金", subLabel: "PRICE" },
-    { href: "#", label: "お知らせ", subLabel: "NEWS" },
+    { href: "/news", label: "お知らせ", subLabel: "NEWS" },
     { href: "#", label: "お問い合わせ", subLabel: "CONTACT" },
   ];
 

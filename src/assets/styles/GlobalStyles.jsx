@@ -1,3 +1,8 @@
+import { createGlobalStyle } from "styled-components";
+import { media } from "/src/assets/js/mediaquery.js";
+
+// グローバルスタイルを定義
+const GlobalStyle = createGlobalStyle`
 /*
 * リセットCSS
 */
@@ -183,3 +188,22 @@ img {
   height: auto;
   vertical-align: bottom;
 }
+
+/*
+* ベースCSS
+*/
+// Googleフォント読み込み
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  min-width: 1200px;
+
+  ${media.md`
+    min-width: initial;
+  `}
+}
+
+`;
+
+export default GlobalStyle;

@@ -13,12 +13,14 @@ const MvNewsList = ({ newsItem, isActive }) => {
       <time dateTime={formatDate2(newsItem._sys.createdAt) || ""}>
         {formatDate(newsItem._sys.createdAt) || ""}
       </time>
-      <div className="tags">
-        {newsItem.tags && newsItem.tags.length > 0 ? (
+      <div className="categories">
+        {newsItem.categories && newsItem.categories.length > 0 ? (
           <>
-            {newsItem.tags.map((tag, index) => (
-              <a key={index} href={tag.slug}>
-                {tag.name}
+            {" "}
+            {console.log(newsItem.categories)}
+            {newsItem.categories.map((category, index) => (
+              <a key={index} href={category.slug}>
+                {category.name}
               </a> // オブジェクトのnameプロパティを表示
             ))}
           </>
@@ -61,16 +63,21 @@ const StyledMvNewsList = styled.li`
     grid-row: 1/2;
   }
 
-  > .tags {
+  > .categories {
     grid-column: 2/3;
     grid-row: 1/2;
+
     > a {
       background-color: ${variables.subColor};
       color: #ffffff;
       font-weight: bolder;
       padding: 0.1em 0.6em;
       transition: color 0.5s, background-color 0.5s;
-      border: 1px solid #ffffff;
+      border: 1px solid ${variables.subColor};
+
+      &:not(:last-of-type) {
+        margin-right: 5px;
+      }
 
       &:hover {
         color: ${variables.subColor};

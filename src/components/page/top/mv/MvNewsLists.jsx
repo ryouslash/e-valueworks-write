@@ -12,11 +12,7 @@ const MvNewsLists = ({ isTypingFinished }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (
-      isTypingFinished &&
-      status === "succeeded" &&
-      newsItems.length > 1
-    ) {
+    if (isTypingFinished && status === "succeeded" && newsItems.length > 1) {
       // 最初の1回だけ2秒後に実行
       const initialTimeout = setTimeout(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
