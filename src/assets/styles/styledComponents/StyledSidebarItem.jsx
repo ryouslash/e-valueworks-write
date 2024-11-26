@@ -36,4 +36,4 @@ const StyledSibeItem = styled.div`
   ${sidebarItem}
 `;
 
-export { StyledSibeItem };
+export default StyledSibeItem;

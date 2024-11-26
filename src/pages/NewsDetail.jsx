@@ -1,13 +1,13 @@
-// NewsDetail.jsx
 import { useParams, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import TwoColumn from "/src/assets/styles/styledComponents/TwoColumn";
 import { media } from "/src/assets/js/mediaquery.js";
-import Content from "/src/components/common/Content.jsx";
-import Container from "/src/components/common/Container.jsx";
-import LoadingScreen from "/src/components/common/LoadingScreen.jsx";
-import Main from "/src/components/page/newsDetail/NewsMain.jsx";
-import Sidebar from "/src/components/sidebar/Sidebar.jsx";
+import Content from "/src/components/common/Content";
+import Container from "/src/components/common/Container";
+import LoadingScreen from "/src/components/common/LoadingScreen";
+import NewsDetailMain from "/src/components/page/newsDetail/NewsDetailMain";
+import NewsSidebar from "/src/components/sidebar/NewsSidebar";
 
 const NewsDetail = () => {
   // URLパラメータからニュースIDを取得
@@ -38,7 +38,8 @@ const NewsDetail = () => {
         <Container>
           <p style={{ padding: "60px 0" }}>
             データの取得に失敗しました。再度お試しください。
-          </p>{" "}
+          </p>
+          <NewsSidebar />
         </Container>
       </Content>
     );
@@ -53,35 +54,12 @@ const NewsDetail = () => {
     <Content>
       <Container>
         <TwoColumn>
-          <Main />
-          <Sidebar />
+          <NewsDetailMain newsItems={newsItems} newsItem={newsItem} />
+          <NewsSidebar />
         </TwoColumn>
       </Container>
     </Content>
   );
 };
-
-const TwoColumn = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 60px 0;
-
-  ${media.md`
-    flex-direction:column;
-  `}
-
-  > main {
-    flex: 1;
-  }
-
-  > aside {
-    max-width: 300px;
-
-    ${media.md`
-      max-width: initial;
-  `}
-  }
-`;
 
 export default NewsDetail;

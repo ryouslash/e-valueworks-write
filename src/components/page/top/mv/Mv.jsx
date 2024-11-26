@@ -3,12 +3,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 import mvImg from "/src/assets/img/mv_img.png";
-import TypingTextH1 from "/src/components/common/TypingTextH1.jsx";
-import Container from "/src/components/common/Container.jsx";
-import FadeIn from "/src/components/common/FadeIn.jsx";
-import MvBtns from "/src/components/page/top/mv/MvBtns.jsx";
-import MvLists from "/src/components/page/top/mv/MvLists.jsx";
-import MvNews from "/src/components/page/top/mv/MvNews.jsx";
+import TypingTextH1 from "/src/components/common/TypingTextH1";
+import Container from "/src/components/common/Container";
+import FadeIn from "/src/components/common/FadeIn";
+import MvBtns from "/src/components/page/top/mv/MvBtns";
+import MvLists from "/src/components/page/top/mv/MvLists";
+import MvNews from "/src/components/page/top/mv/MvNews";
 
 const Mv = () => {
   const [isTypingFinished, setIsTypingFinished] = useState(false); // タイピングテキストの実行が終わったタイミングでファーストビューのアニメーションを実行

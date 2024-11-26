@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import useFadeInOnScroll from "/src/hooks/useFadeInOnScroll.jsx";
+import useFadeInOnScroll from "/src/hooks/useFadeInOnScroll";
 
 const FadeInOnScroll = ({ children, delay }) => {
   const { ref, isVisible } = useFadeInOnScroll();

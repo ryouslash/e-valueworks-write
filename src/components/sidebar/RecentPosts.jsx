@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { StyledSibeItem } from "/src/assets/styles/StyledComponents.jsx";
+import StyledSibeItem from "/src/assets/styles/styledComponents/StyledSidebarItem";
 
 const RecentPosts = ({ latestNews }) => {
   return (

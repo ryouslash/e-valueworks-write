@@ -26,6 +26,7 @@ const NewsMeta = ({ newsItem }) => {
             src={newsItem.coverImage.src}
             width={newsItem.coverImage.width}
             height={newsItem.coverImage.height}
+            alt={newsItem.coverImage.altText || ""}
           />
         </div>
       )}

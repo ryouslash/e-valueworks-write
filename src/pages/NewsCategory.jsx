@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
-import Content from "/src/components/common/Content.jsx";
+import Content from "/src/components/common/Content";
 
 const NewsCategory = () => {
   return (

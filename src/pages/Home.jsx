@@ -1,6 +1,5 @@
-// src/pages/Home.jsx
-import Content from "/src/components/common/Content.jsx";
-import Mv from "/src/components/page/top/mv/Mv.jsx";
+import Content from "/src/components/common/Content";
+import Mv from "/src/components/page/top/mv/Mv";
 
 const Home = () => {
   return (

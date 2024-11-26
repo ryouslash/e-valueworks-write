@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
-import Container from "/src/components/common/Container.jsx";
-import MvNewsLists from "/src/components/page/top/mv/MvNewsLists.jsx";
+import Container from "/src/components/common/Container";
+import MvNewsLists from "/src/components/page/top/mv/MvNewsLists";
 
 const MvNews = ({ isTypingFinished }) => {
   return (

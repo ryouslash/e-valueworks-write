@@ -1,18 +1,17 @@
-// src/App.jsx
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "/src/store/modules/newsSlice";
 import { fetchCategories } from "/src/store/modules/categoriesSlice";
-import GlobalStyle from "/src/assets/styles/GlobalStyles.jsx"; // 作成したグローバルスタイルをインポート
+import GlobalStyle from "/src/assets/styles/GlobalStyles"; // 作成したグローバルスタイルをインポート
 
-import Header from "/src/components/Header/Header.jsx";
-import Home from "/src/pages/Home.jsx";
-import About from "/src/pages/About.jsx";
-import NewsDetail from "/src/pages/NewsDetail.jsx";
-import News from "/src/pages/News.jsx";
-import NewsCategory from "/src/pages/NewsCategory.jsx";
-import Contact from "/src/pages/Contact.jsx";
+import Header from "/src/components/Header/Header";
+import Home from "/src/pages/Home";
+import About from "/src/pages/About";
+import NewsDetail from "/src/pages/NewsDetail";
+import News from "/src/pages/News";
+import NewsCategory from "/src/pages/NewsCategory";
+import Contact from "/src/pages/Contact";
 
 const App = () => {
   const dispatch = useDispatch();

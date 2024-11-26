@@ -1,15 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "/src/api/newtapi.js"; // Newt API クライアント
 
-// タグ情報を非同期で取得する Thunk
-export const fetchCategories = createAsyncThunk("categories/fetchCategories", async () => {
-  const response = await client.getContents({
-    appUid: "news",
-    modelUid: "category",
-    order: "-createdAt",
-  });
-  return response.items;
-});
+// カテゴリー情報を非同期で取得する Thunk
+export const fetchCategories = createAsyncThunk(
+  "categories/fetchCategories",
+  async () => {
+    const response = await client.getContents({
+      appUid: "blog",
+      modelUid: "category",
+      order: "-createdAt",
+    });
+    return response.items;
+  }
+);
 
 const categoriesSlice = createSlice({
   name: "categories",

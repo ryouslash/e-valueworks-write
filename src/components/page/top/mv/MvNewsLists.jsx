@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 
-import MvNewsList from "/src/components/page/top/mv/MvNewsList.jsx"; // 分割したコンポーネントをインポート
+import MvNewsList from "/src/components/page/top/mv/MvNewsList"; 
 
 const MvNewsLists = ({ isTypingFinished }) => {
   const newsItems = useSelector((state) => state.news.items);

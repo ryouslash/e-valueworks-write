@@ -1,5 +1,5 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import ListWithIcon from "/src/components/common/ListWithIcon.jsx";
+import ListWithIcon from "/src/components/common/ListWithIcon";
 
 const MvLists = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import RecentPosts from "/src/components/sidebar/RecentPosts.jsx";
-import Categories from "/src/components/sidebar/Categories.jsx";
+import RecentPosts from "/src/components/sidebar/RecentPosts";
+import Categories from "/src/components/sidebar/Categories";
 
-const Sidebar = () => {
+const NewsSidebar = () => {
   // Reduxからお知らせニュース一覧を取得
   const newsItems = useSelector((state) => state.news.items);
   const latestNews = newsItems.slice(0, 5);
@@ -26,4 +26,4 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-export default Sidebar;
+export default NewsSidebar;

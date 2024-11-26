@@ -4,8 +4,8 @@ import { media } from "/src/assets/js/mediaquery.js";
 import chatwork from "/src/assets/img/cw_logomark_color.svg";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-import BtnWithIcon from "/src/components/common/BtnWithIcon.jsx";
-import BtnWithImg from "/src/components/common/BtnWithImg.jsx";
+import BtnWithIcon from "/src/components/common/BtnWithIcon";
+import BtnWithImg from "/src/components/common/BtnWithImg";
 
 const MvBtns = () => {
   return (

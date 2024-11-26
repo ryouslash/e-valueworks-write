@@ -1,5 +1,5 @@
 import React from "react";
-import Content from "/src/components/common/Content.jsx";
+import Content from "/src/components/common/Content";
 
 const AboutContent = () => {
   return (
