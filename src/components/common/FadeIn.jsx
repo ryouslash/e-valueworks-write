@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "/src/assets/js/mediaquery.js";
 
 const FadeIn = ({ children, isTypingFinished, delay }) => {
   return (
@@ -14,8 +13,8 @@ const FadeIn = ({ children, isTypingFinished, delay }) => {
 
 const StyledMvFadeInElement = styled.div`
   opacity: 0;
-  transform: translateY(20px);
-  transition: 0.5s;
+  transform: translateY(2rem);
+  transition: opacity 0.5s, transform 0.5s;
   transition-delay: ${(props) => props.$delay || "0s"};
 
   &.is-fadeIn {

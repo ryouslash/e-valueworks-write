@@ -18,8 +18,8 @@ const FadeInOnScroll = ({ children, delay }) => {
 
 const StyledFadeInOnScroll = styled.div`
   opacity: 0;
-  transform: translateY(20px);
-  transition: 0.5s;
+  transform: translateY(6rem);
+  transition: transform 0.5s, opacity 0.5s;
   transition-delay: ${(props) => props.$delay || "0s"};
 
   &.is-active {

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 
+import { keyColor } from "/src/assets/js/variable.js";
+
 import chatwork from "/src/assets/img/cw_logomark_color.svg";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,13 +17,15 @@ const MvBtns = () => {
         href="#"
         icon={faEnvelope}
         className="fa-envelope"
-        bgColor="#18c1f0"
+        bgColor={keyColor}
         color="#ffffff"
       />
       <BtnWithImg
         label="Chatworkでご相談"
         href="https://www.chatwork.com/ryouslash"
         img={chatwork}
+        width={150}
+        height={150}
       />
     </StyledMvBtns>
   );
@@ -30,7 +34,7 @@ const MvBtns = () => {
 const StyledMvBtns = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 1rem;
   width: 100%;
 
   ${media.md`

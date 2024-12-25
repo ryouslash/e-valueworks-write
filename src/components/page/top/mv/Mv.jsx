@@ -1,4 +1,3 @@
-// Mv.jsx
 import { useState } from "react";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
@@ -8,7 +7,6 @@ import Container from "/src/components/common/Container";
 import FadeIn from "/src/components/common/FadeIn";
 import MvBtns from "/src/components/page/top/mv/MvBtns";
 import MvLists from "/src/components/page/top/mv/MvLists";
-import MvNews from "/src/components/page/top/mv/MvNews";
 
 const Mv = () => {
   const [isTypingFinished, setIsTypingFinished] = useState(false); // タイピングテキストの実行が終わったタイミングでファーストビューのアニメーションを実行
@@ -18,7 +16,7 @@ const Mv = () => {
       <Container className="container">
         <div className="left">
           <TypingTextH1
-            text="現役Webエンジニアによる¥IT・Web特化ライティングサービス"
+            text="現役Webエンジニアによる¥IT分野特化のライティングサービス"
             isTypingFinished={isTypingFinished}
             onTypingComplete={() => setIsTypingFinished(true)}
           />
@@ -30,16 +28,15 @@ const Mv = () => {
           </FadeIn>
         </div>
         <div className="right">
-          <img src={mvImg} alt="" />
+          <img src={mvImg} alt="" width={1200} height={1200} />
         </div>
       </Container>
-      <MvNews isTypingFinished={isTypingFinished} />
     </StyledMv>
   );
 };
 
 const StyledMv = styled.section`
-  background-size: 500px;
+  background-size: 50rem;
   background: rgb(232, 238, 254);
   background: linear-gradient(
     115deg,
@@ -52,17 +49,17 @@ const StyledMv = styled.section`
     align-items: center;
     display: flex;
     justify-content: space-between;
-    min-height: calc(400px + 5vw);
-    padding-top: 30px;
-    padding-bottom: 30px;
-    gap: 30px;
+    min-height: calc(40rem + 5vw);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    gap: 3rem;
 
     ${media.md`
       flex-direction: column-reverse;
     `}
 
     > .left {
-      max-width: 600px;
+      max-width: 60rem;
       flex-shrink: 1;
 
       ${media.md`
@@ -71,16 +68,17 @@ const StyledMv = styled.section`
 
       p {
         padding-left: 1.2em;
-        margin-bottom: 15px;
+        margin-bottom: 1.5rem;
       }
     }
 
     > .right {
-      max-width: 500px;
+      max-width: 50rem;
+      width: 100%;
       flex-shrink: 4;
 
       ${media.md`
-        max-width: 300px;
+        max-width: 30rem;
       `}
     }
   }

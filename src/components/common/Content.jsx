@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 
 const Content = styled.div`
-  margin-top: 80.5px;
+  margin-top: 8.05rem;
 
   ${media.lg`
-    margin-top: 72.19px;
+    margin-top: 7.219rem;
   `}
 
   ${media.sm`
-    margin-top: 70px;
+    margin-top: 7rem;
   `}
 `;
 

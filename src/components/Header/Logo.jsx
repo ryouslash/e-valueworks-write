@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 import logo from "/src/assets/img/logo.svg";
@@ -6,18 +5,19 @@ import logo from "/src/assets/img/logo.svg";
 const Logo = () => {
   return (
     <StyledLogo>
-      <Link to="/">
-        <img src={logo} />
-      </Link>
+      <a href="/">
+        <img src={logo} alt="E-VALUE WORKS WRITE" width={466} height={60} />
+      </a>
     </StyledLogo>
   );
 };
 
 const StyledLogo = styled.div`
-  max-width: 250px;
+  max-width: 25rem;
+  width: 100%;
 
   ${media.sm`
-    max-width: 200px;
+    max-width: 20rem;
   `}
 `;
 

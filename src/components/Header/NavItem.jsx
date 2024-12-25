@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom"; 
 import styled from "styled-components";
 
 const NavItem = ({ href, label, subLabel }) => {
   return (
     <StyledNavItem>
-      <Link to={href}>
+      <a href={href}>
         {label}
         <span>{subLabel}</span>
-      </Link>
+      </a>
     </StyledNavItem>
   );
 };
@@ -17,7 +16,7 @@ const StyledNavItem = styled.li`
     text-decoration: none;
     color: #333;
     display: block;
-    padding: 20px 15px;
+    padding: 2rem 1.5rem;
     position: relative;
     transition: opacity 0.3s;
 
@@ -26,7 +25,7 @@ const StyledNavItem = styled.li`
       bottom: 0;
       content: "";
       display: block;
-      height: 2px;
+      height: 0.2rem;
       left: 0;
       position: absolute;
       transition: width 0.3s;
@@ -45,7 +44,7 @@ const StyledNavItem = styled.li`
       color: #777;
       display: block;
       font-size: 1.1rem;
-      margin-top: 5px;
+      margin-top: 0.5rem;
       text-align: center;
     }
   }

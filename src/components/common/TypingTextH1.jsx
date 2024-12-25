@@ -41,25 +41,37 @@ const TypingTextH1 = ({ text, isTypingFinished, onTypingComplete }) => {
 };
 
 const StyledText = styled.h1`
-  font-size: clamp(1.7rem, 1.2rem + 1.5625vw, 3.2rem);
+  font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 0.8em;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05rem;
 
   ${media.md`
     text-align: center;
   `}
+
+  ${media.sm`
+    font-size: 2.3rem;
+    `}
+
+    ${media.xs`
+    font-size: 1.7rem;
+    `}
 `;
 
 const StyledLine = styled.span`
   position: relative;
   overflow: hidden;
   display: inline-block;
-  padding: 3px 10px;
+  padding: 0.3rem 1rem;
   color: ${({ $isTypingFinished }) =>
     $isTypingFinished ? "#ffffff" : "inherit"};
   transition: color 1s ease ${({ $delay }) => $delay}s; /* テキストの色の遅延 */
   z-index: 1;
+
+  ${media.xs`
+    padding: 0.3rem 0.5rem;
+  `}
 
   &:after {
     content: "";

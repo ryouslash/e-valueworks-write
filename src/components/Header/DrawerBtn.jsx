@@ -19,8 +19,8 @@ const StyledDrawerBtn = styled.div`
   ${media.lg`
     display: block;
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
   `}
 
@@ -30,7 +30,7 @@ const StyledDrawerBtn = styled.div`
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     position: absolute;
-    transition: 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
   }
 
   > .fa-bars {

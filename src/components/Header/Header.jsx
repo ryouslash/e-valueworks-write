@@ -28,7 +28,7 @@ const Header = ({ setHeaderHeight }) => {
 
 const StyledHeader = styled.header`
   background-color: #ffffff;
-  box-shadow: 0 3px 5px hsla(0, 0%, 43%, 0.251);
+  box-shadow: 0 0.3rem 0.5rem hsla(0, 0%, 43%, 0.251);
   left: 0;
   position: fixed;
   top: 0;
@@ -36,7 +36,7 @@ const StyledHeader = styled.header`
   z-index: 99;
 
   ${media.lg`
-    padding: 20px 0;
+    padding: 2rem 0;
   `}
 
   >.container {

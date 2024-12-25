@@ -87,6 +87,10 @@ video {
 
 html {
   font-size: 62.5%;
+
+  @media screen and (min-width: 1921px) {
+    font-size: 0.6vw;
+  }
 }
 
 body {
@@ -193,15 +197,20 @@ img {
 * ベースCSS
 */
 // Googleフォント読み込み
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
   font-size: 1.6rem;
-  font-family: "Roboto", "Noto Sans JP", sans-serif;
-  min-width: 1200px;
+  font-family: "Noto Sans JP", sans-serif;
+  min-width: 120rem;
 
   ${media.md`
     min-width: initial;
   `}
+
+  ${media.sm`
+    font-size: 1.5rem;
+    `}
 }
 
 `;
