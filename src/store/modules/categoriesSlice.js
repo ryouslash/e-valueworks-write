@@ -6,7 +6,7 @@ export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
     const response = await client.getContents({
-      appUid: "blog",
+      appUid: "news",
       modelUid: "category",
       order: "-createdAt",
     });
