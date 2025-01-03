@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { media } from "/src/assets/js/mediaquery.js";
 
-import { keyColor } from "/src/assets/js/variable.js";
+import { subColor } from "/src/assets/js/variable.js";
 
 import chatwork from "/src/assets/img/cw_logomark_color.svg";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ const MvBtns = () => {
         href="#"
         icon={faEnvelope}
         className="fa-envelope"
-        bgColor={keyColor}
+        bgColor={subColor}
         color="#ffffff"
       />
       <BtnWithImg

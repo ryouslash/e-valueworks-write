@@ -89,7 +89,7 @@ html {
   font-size: 62.5%;
 
   @media screen and (min-width: 1921px) {
-    font-size: 0.6vw;
+    font-size: 0.55vw;
   }
 }
 
@@ -196,8 +196,7 @@ img {
 /*
 * ベースCSS
 */
-// Googleフォント読み込み
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 body {
   font-size: 1.6rem;

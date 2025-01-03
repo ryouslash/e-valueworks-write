@@ -1,2 +1,2 @@
-export const keyColor = "#18c1f0";
-export const subColor = "#73be60";
+export const keyColor = "#91b3fa";
+export const subColor = "#18c1f0";

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-import useFadeInOnScroll from "/src/hooks/useFadeInOnScroll";
+import useObserver from "/src/hooks/useObserver";
 
 const FadeInOnScroll = ({ children, delay }) => {
-  const { ref, isVisible } = useFadeInOnScroll();
+  const { ref, isVisible } = useObserver();
 
   return (
     <StyledFadeInOnScroll
       ref={ref}
-      className={isVisible ? "is-active" : ""}
+      className={isVisible ? "is-fadeIn" : ""}
       $delay={delay}
     >
       {children}
@@ -22,7 +22,7 @@ const StyledFadeInOnScroll = styled.div`
   transition: transform 0.5s, opacity 0.5s;
   transition-delay: ${(props) => props.$delay || "0s"};
 
-  &.is-active {
+  &.is-fadeIn {
     opacity: 1;
     transform: translateY(0);
   }

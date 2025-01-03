@@ -1,20 +1,17 @@
 import styled from "styled-components";
+import { media } from "/src/assets/js/mediaquery.js";
+import { subColor } from "/src/assets/js/variable.js";
 
-import noImg from "/src/assets/img/noimg.jpg";
 import FadeInOnScroll from "/src/components/common/FadeInOnScroll";
 
-const FeatureList = () => {
+const FeatureList = ({ img, heading, text }) => {
   return (
     <StyledFeatureList>
       <FadeInOnScroll>
-        <div className="left">
-          <img src={noImg} alt="" />
-        </div>
+        <div className="left">{<img src={img} alt="" />} </div>
         <div className="right">
-          <h3>現役Webエンジニアによる専門性の高い記事作成</h3>
-          <p>
-            最新の技術トレンドや実務経験に基づく知識を活かし、読者の信頼を得られる高品質な記事を作成します。専門性とわかりやすさを両立させたライティングで、貴社のサービス価値を最大化します。
-          </p>
+          <h3>{heading}</h3>
+          {text}
         </div>
       </FadeInOnScroll>
     </StyledFeatureList>
@@ -22,14 +19,71 @@ const FeatureList = () => {
 };
 
 const StyledFeatureList = styled.li`
+  &:first-of-type {
+    .left {
+      &::before {
+        content: "01";
+      }
+    }
+  }
+
+  &:nth-of-type(2) {
+    .left {
+      &::before {
+        content: "02";
+      }
+    }
+  }
+
+  &:nth-of-type(3) {
+    .left {
+      &::before {
+        content: "03";
+      }
+    }
+  }
+
+  &:nth-of-type(4) {
+    .left {
+      &::before {
+        content: "04";
+      }
+    }
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 4rem;
+  }
+
+  &:nth-of-type(even) {
+    > div {
+      flex-direction: row-reverse;
+
+      ${media.md`
+      flex-direction: column;
+    `}
+    }
+  }
+
   > div {
     display: flex;
+    align-items: flex-start;
     gap: 4rem;
+
+    ${media.md`
+      flex-direction: column;
+      gap: 3rem;
+    `}
 
     .left {
       width: 40%;
       flex-shrink: 0;
       position: relative;
+      box-shadow: 0 0 0.6rem #dddddd;
+
+      ${media.md`
+        width: 100%;
+      `}
 
       &::before {
         position: absolute;
@@ -38,7 +92,8 @@ const StyledFeatureList = styled.li`
         font-size: 3.6rem;
         font-style: italic;
         font-weight: 600;
-        background-color: #ffffff;
+        background-color: ${subColor};
+        color: #ffffff;
         padding: 1rem;
         font-family: "Roboto", sans-serif;
       }
@@ -49,11 +104,18 @@ const StyledFeatureList = styled.li`
 
       h3 {
         font-size: 2.2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1em;
+
+        ${media.sm`
+          font-size: 1.8rem;
+      `}
       }
 
       p {
         line-height: 1.6;
+        &:not(:last-of-type) {
+          margin-bottom: 1em;
+        }
       }
     }
   }
